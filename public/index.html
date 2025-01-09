@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Descarga el APK desarrollado por Jairo Huaripata y revisa el código en GitHub.">
+    <meta name="keywords" content="descargar APK, Jairo Huaripata, ver código, GitHub">
+    <meta name="author" content="Jairo Huaripata">
+    <title>Descarga el APK</title>
+    <style>
+        body {
+            font-family: "Roboto", Arial, sans-serif;
+            background: linear-gradient(135deg, #4CAF50, #2E7D32);
+            margin: 0;
+            padding: 0;
+            color: #fff;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px 10px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            color: #333;
+            text-align: center;
+        }
+
+        .container img {
+            max-width: 100%;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .container h2 {
+            font-size: 1.8rem;
+            margin: 20px 0 10px;
+        }
+
+        .container p {
+            font-size: 1rem;
+            line-height: 1.5;
+            margin: 10px 0 20px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .buttons a {
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .buttons a.download {
+            background-color: #4CAF50;
+            color: #fff;
+        }
+
+        .buttons a.github {
+            background-color: #24292e;
+            color: #fff;
+        }
+
+        .buttons a:hover {
+            transform: scale(1.05);
+        }
+
+        .buttons a.download:hover {
+            background-color: #45a049;
+        }
+
+        .buttons a.github:hover {
+            background-color: #444;
+        }
+
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            color: #fff;
+            font-size: 0.9rem;
+            padding: 20px;
+        }
+
+        footer a {
+            color: #ffeb3b;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <script type="text/javascript">
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+        });
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1>Descarga el APK</h1>
+        <p>Desarrollado por Jairo Huaripata</p>
+    </header>
+    <div class="container">
+        <img src="logo.png" alt="Vista previa del APK" width="100">
+        <h2>Aplicación Android</h2>
+        <p>Descarga la última versión del APK y explora el código fuente en GitHub para saber más sobre este proyecto.
+        </p>
+        <div class="buttons">
+            <a href="" class="download" id="download">Descargar APK</a>
+            <a href="https://github.com/jairohuaripata/proyecto-apk" target="_blank" class="github">Ver Código</a>
+        </div>
+    </div>
+    <footer>
+        &copy; 2025 Jairo Huaripata. Todos los derechos reservados. Visita mi <a
+            href="https://github.com/jairohuaripata" target="_blank">GitHub</a>.
+    </footer>
+
+    <script>
+        class APKDownloader {
+            constructor() {
+                this.architecture = this.getArchitecture();
+                this.downloadLinks = {
+                    'armeabi-v7a': 'https://www.mediafire.com/file/e8qvk8rm7xspd3k/Entregable_2.apk/file',
+                    'arm64-v8a': 'https://www.mediafire.com/file/i6ek7z775jbdybl/Entregable_2.apk/file',
+                    'x86_64': 'https://www.mediafire.com/file/nw5k2abq8t0xl64/Entregable_2.apk/file',
+                    'default': 'https://www.mediafire.com/folder/9a4ihshd7p53e/Entregable+2'
+                };
+            }
+
+            // Detecta la arquitectura del dispositivo
+            getArchitecture() {
+                const platform = navigator.platform.toLowerCase();
+                const userAgent = navigator.userAgent.toLowerCase();
+
+                if (platform.includes('arm64') || userAgent.includes('aarch64') || userAgent.includes('armv8')) {
+                    return 'arm64-v8a';
+                } else if (platform.includes('arm') || userAgent.includes('armeabi') || userAgent.includes('armv7')) {
+                    return 'armeabi-v7a';
+                } else if (platform.includes('x86_64') || userAgent.includes('x86_64') || userAgent.includes('amd64')) {
+                    return 'x86_64';
+                }
+                return 'default';
+            }
+
+            // Muestra el mensaje y genera el enlace de descarga para todos los elementos con id="downloadLink"
+            generateDownloadLinks() {
+                const downloadLinks = document.querySelectorAll('#download'); // Selecciona todos los elementos con id="downloadLink"
+                const apkLink = this.downloadLinks[this.architecture] || this.downloadLinks['default'];
+
+                // Mensaje de detección de arquitectura
+                if (this.architecture === 'default') {
+                    downloadLinks.forEach((link) => {
+                        link.href = apkLink;
+                        //  link.style.display = 'none';
+                    });
+                } else {
+                    downloadLinks.forEach((link) => {
+                        link.href = apkLink;
+                        link.style.display = 'inline-block';
+                    });
+                }
+
+                // Actualiza el href de todos los enlaces con id="downloadLink"
+                //  downloadLinks.forEach((link) => {
+                //      link.href = apkLink;
+                //      link.style.display = 'inline-block';
+                //  });
+            }
+        }
+
+        // Inicializa el descargador al cargar la página
+        window.onload = () => {
+            const downloader = new APKDownloader();
+            downloader.generateDownloadLinks();
+        };
+
+
+    </script>
+</body>
+
+</html>
