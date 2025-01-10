@@ -10,11 +10,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-<<<<<<< HEAD
     "express": "^4.21.2",
     "firebase": "^11.1.0"
-=======
-    "express": "^4.21.2"
->>>>>>> d62c7e904459a6a97f8ddf924090aff0f9dbdd88
   }
 }
