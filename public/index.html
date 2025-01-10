@@ -230,7 +230,7 @@
                 proyecto.
             </p>
             <div class="buttons">
-                <a href="" class="download" id="download">Descargar APK</a>
+                <a href="" class="download" id="downloadLink">Descargar APK</a>
                 <a href="https://github.com/JairoHuaripata/Entregable-2" target="_blank" class="github">Ver Código</a>
             </div>
         </div>
@@ -272,8 +272,6 @@
     </footer>
 
     <script>
-
-
         async function getJsonData() {
             try {
                 // Función para obtener y mostrar el contenido JSON desde el servidor
@@ -343,6 +341,71 @@
         // Llamar a la función al cargar la página
         window.onload = getJsonData;
     </script>
+
+
+    <script>
+        class APKDownloader {
+            constructor() {
+                this.architecture = this.getArchitecture();
+                this.downloadLinks = {
+                    'armeabi-v7a': 'https://www.mediafire.com/file/gfi25lvkxbvtuwh/Entregable_2.apk/file',
+                    'arm64-v8a': 'https://www.mediafire.com/file/0chd3wq27sbnpep/Entregable_2.apk/file',
+                    'x86_64': 'https://www.mediafire.com/file/9995sj10fivtwix/Entregable_2.apk/file',
+                    'default': 'https://www.mediafire.com/folder/9an0aq81iiiwq/Entregable+2'
+                };
+            }
+
+            // Detecta la arquitectura del dispositivo
+            getArchitecture() {
+                const platform = navigator.platform.toLowerCase();
+                const userAgent = navigator.userAgent.toLowerCase();
+
+                if (platform.includes('arm64') || userAgent.includes('aarch64') || userAgent.includes('armv8')) {
+                    return 'arm64-v8a';
+                } else if (platform.includes('arm') || userAgent.includes('armeabi') || userAgent.includes('armv7')) {
+                    return 'armeabi-v7a';
+                } else if (platform.includes('x86_64') || userAgent.includes('x86_64') || userAgent.includes('amd64')) {
+                    return 'x86_64';
+                }
+                return 'default';
+            }
+
+            // Muestra el mensaje y genera el enlace de descarga para todos los elementos con id="downloadLink"
+            generateDownloadLinks() {
+                const downloadLinks = document.querySelectorAll('#downloadLink'); // Selecciona todos los elementos con id="downloadLink"
+                const apkLink = this.downloadLinks[this.architecture] || this.downloadLinks['default'];
+
+                // Mensaje de detección de arquitectura
+                if (this.architecture === 'default') {
+                    downloadLinks.forEach((link) => {
+                        link.href = apkLink;
+                        //  link.style.display = 'none';
+                    });
+                } else {
+                    downloadLinks.forEach((link) => {
+                        link.href = apkLink;
+                        link.style.display = 'inline-block';
+                    });
+                }
+
+                // Actualiza el href de todos los enlaces con id="downloadLink"
+                //  downloadLinks.forEach((link) => {
+                //      link.href = apkLink;
+                //      link.style.display = 'inline-block';
+                //  });
+            }
+        }
+
+        // Inicializa el descargador al cargar la página
+        window.onload = () => {
+            const downloader = new APKDownloader();
+            downloader.generateDownloadLinks();
+        };
+
+
+    </script>
+
+
 </body>
 
 </html>
