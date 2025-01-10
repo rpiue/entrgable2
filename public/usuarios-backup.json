@@ -1,0 +1,222 @@
+[
+  {
+    "id": "3YYyh40QpZCq4iRqXssV",
+    "data": {
+      "email": "huaripatajairo@gmail.com",
+      "createdAt": {
+        "seconds": 1736311144,
+        "nanoseconds": 403000000
+      },
+      "cursos": [
+        1,
+        3,
+        2,
+        5
+      ],
+      "nombre": "Jairo Huaripata",
+      "tipo": 0,
+      "password": "hola1234"
+    }
+  },
+  {
+    "id": "42EF5GtBeyqWeIqwrBln",
+    "data": {
+      "cursos": [
+        1,
+        3
+      ],
+      "nombre": "Luis González",
+      "password": "123456",
+      "email": "luisgonza@gmail.com",
+      "tipo": 0,
+      "createdAt": {
+        "seconds": 1736471107,
+        "nanoseconds": 749000000
+      }
+    }
+  },
+  {
+    "id": "AimRmPhr341i6TQI4UvW",
+    "data": {
+      "cursos": [
+        2
+      ],
+      "nombre": "Carmen García",
+      "email": "carmen@gmail.com",
+      "password": "123456",
+      "createdAt": {
+        "seconds": 1736471314,
+        "nanoseconds": 280000000
+      },
+      "tipo": 0
+    }
+  },
+  {
+    "id": "BQGeRPS4pklD4Lf9MrTN",
+    "data": {
+      "email": "davidlopes@gmail.com",
+      "createdAt": {
+        "seconds": 1736471020,
+        "nanoseconds": 30000000
+      },
+      "tipo": 0,
+      "password": "123456",
+      "cursos": [
+        4,
+        1
+      ],
+      "nombre": "David López"
+    }
+  },
+  {
+    "id": "Oe9yfxA8SiJwa5icCm52",
+    "data": {
+      "nombre": "Marcos Quispe",
+      "password": "123456",
+      "cursos": [
+        2,
+        3
+      ],
+      "createdAt": {
+        "seconds": 1736470764,
+        "nanoseconds": 803000000
+      },
+      "email": "marcosq@gmail.com",
+      "tipo": 0
+    }
+  },
+  {
+    "id": "PFSdp2I98F9dEv1if7TW",
+    "data": {
+      "tipo": 0,
+      "nombre": "Ana Martinez",
+      "cursos": [
+        3
+      ],
+      "createdAt": {
+        "seconds": 1736472297,
+        "nanoseconds": 70000000
+      },
+      "email": "anamartinez@gmail.com",
+      "password": "123456"
+    }
+  },
+  {
+    "id": "TXrFV6rRzPjfaD66JJKC",
+    "data": {
+      "nombre": "Juan Díaz",
+      "cursos": [
+        1,
+        3
+      ],
+      "createdAt": {
+        "seconds": 1736471516,
+        "nanoseconds": 496000000
+      },
+      "password": "123456",
+      "email": "juandias@gmail.com",
+      "tipo": 0
+    }
+  },
+  {
+    "id": "TngIpsl8q48MEqxpZRnb",
+    "data": {
+      "email": "jhonatanmendoza@gmail.com",
+      "tipo": 0,
+      "password": "123456",
+      "cursos": [],
+      "nombre": "Jhonatan Mendoza",
+      "createdAt": {
+        "seconds": 1736470143,
+        "nanoseconds": 51000000
+      }
+    }
+  },
+  {
+    "id": "hOOFJhgHNAUWdgWf8eWl",
+    "data": {
+      "cursos": [
+        2,
+        1,
+        5
+      ],
+      "nombre": "Laura Mendoza",
+      "email": "laumendoza@gmail.com",
+      "createdAt": {
+        "seconds": 1736470858,
+        "nanoseconds": 178000000
+      },
+      "tipo": 0,
+      "password": "123456"
+    }
+  },
+  {
+    "id": "o8l2AhqxWaINyFdMx6fk",
+    "data": {
+      "email": "sofiterrones@gmail.com",
+      "tipo": 0,
+      "nombre": "Sofia Terrones",
+      "cursos": [
+        3,
+        2,
+        1
+      ],
+      "password": "123456",
+      "createdAt": {
+        "seconds": 1736471412,
+        "nanoseconds": 409000000
+      }
+    }
+  },
+  {
+    "id": "owJ5yRK8RFJMzJZM8Q2o",
+    "data": {
+      "password": "123456",
+      "cursos": [
+        2,
+        4
+      ],
+      "createdAt": {
+        "seconds": 1736460346,
+        "nanoseconds": 868000000
+      },
+      "nombre": "Jairo Huaripata",
+      "email": "admi@gmail.com",
+      "tipo": 1
+    }
+  },
+  {
+    "id": "tCYDGJft1cayw4e594HN",
+    "data": {
+      "nombre": "Carlos Hernández",
+      "email": "carloshernandez@gmail.com",
+      "createdAt": {
+        "seconds": 1736458761,
+        "nanoseconds": 411000000
+      },
+      "cursos": [
+        1,
+        5,
+        6
+      ],
+      "password": "hola1234",
+      "tipo": 0
+    }
+  },
+  {
+    "id": "uegxiw2DH8G7hsplubFA",
+    "data": {
+      "cursos": [
+        6
+      ],
+      "nombre": "Alvarez Castro",
+      "tipo": 0,
+      "email": "castro@gmail.com",
+      "password": "123456",
+      "createdAt": {
+        "seconds": 1736470580,
+        "nanoseconds": 992000000
+      }
+    }
+  }
+]

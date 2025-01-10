@@ -1,0 +1,108 @@
+[
+  {
+    "id": "sBL6I3HhLDe6b30NP0LS",
+    "data": {
+      "version": "1.0.0",
+      "cursos": {
+        "SQL": {
+          "prof": "Guillermo Garcia",
+          "id": 4,
+          "masDetalles": {
+            "Consultas SQL": "Sintaxis SQL básica, SELECT, INSERT, UPDATE, DELETE, y consultas complejas con JOIN, GROUP BY y subconsultas.",
+            "Optimización de bases de datos": "Técnicas para mejorar el rendimiento de consultas y el diseño de bases de datos eficientes.",
+            "Seguridad y protección de datos": "Buenas prácticas para la seguridad en bases de datos, incluyendo cifrado y control de acceso.",
+            "Fundamentos de MySQL": "Instalación, configuración, y conceptos básicos de bases de datos relacionales.",
+            "Procedimientos almacenados y triggers": "Uso de procedimientos y funciones almacenadas para automatizar tareas.",
+            "Administración de bases de datos": "Creación, mantenimiento, y administración de usuarios, permisos y copias de seguridad."
+          },
+          "duracion": "14 semanas",
+          "disponible": true,
+          "cupos": 26,
+          "fondo": "https://www.ropstam.com/wp-content/uploads/2023/12/Why-Use-MySQL-for-Database-Management.jpg",
+          "detalles": "MySQL es uno de los sistemas de gestión de bases de datos más populares, utilizado en aplicaciones web y sistemas de gran escala. Aprende a diseñar y gestionar bases de datos, crear consultas complejas y optimizar el rendimiento en MySQL."
+        },
+        "Kotlin": {
+          "duracion": "12 semanas",
+          "id": 5,
+          "disponible": true,
+          "cupos": 27,
+          "prof": "Ruben Pizarro",
+          "detalles": "Descripción General: Kotlin es un lenguaje moderno, conciso y seguro que es ampliamente utilizado para el desarrollo de aplicaciones Android. Aprende a desarrollar aplicaciones móviles nativas y robustas utilizando las características de Kotlin y su integración con Android Studio.",
+          "fondo": "https://edteam-media.s3.amazonaws.com/courses/original/d793ee5a-9dd1-4a3a-9c82-9b08a5f89a52.png",
+          "masDetalles": {
+            "Programación orientada a objetos": "Uso de clases, objetos, herencia, interfaces y polimorfismo en Kotlin.",
+            "Fundamentos de Kotlin": "Sintaxis básica, variables, operadores, estructuras de control, funciones y clases.",
+            "Patrones de diseño": "Implementación de patrones como MVVM, MVP, y Singleton en aplicaciones móviles.",
+            "Desarrollo de aplicaciones Android": "Creación de aplicaciones móviles nativas para Android utilizando Kotlin y Android Studio.",
+            "Coroutines": "Programación asincrónica con corutinas para mejorar la eficiencia en la ejecución de tareas concurrentes.",
+            "Interacción con bases de datos": "Conexión con bases de datos locales y remotas (SQLite, Firebase)."
+          }
+        },
+        "Java Script": {
+          "id": 1,
+          "cupos": 13,
+          "prof": "Javier Pérez",
+          "fondo": "https://files.ably.io/ghost/prod/2023/12/choosing-the-best-javascript-frameworks-for-your-next-project.png",
+          "detalles": "JavaScript es un lenguaje de programación esencial para el desarrollo web, ampliamente utilizado para agregar interactividad y dinamismo a las páginas web. Aprende a desarrollar desde sitios web básicos hasta aplicaciones interactivas utilizando bibliotecas y frameworks como React, Angular, y Vue.js",
+          "duracion": "14 semanas",
+          "masDetalles": {
+            "Frameworks y Librerías": "Introducción a bibliotecas como React, Vue.js y Angular para crear interfaces de usuario dinámicas.",
+            "Fundamentos de JavaScript": "Variables, operadores, estructuras de control, funciones y eventos.",
+            "Manipulación del DOM (Document Object Model)": "Crear y modificar elementos HTML, controlar eventos y animaciones.",
+            "Asincronía en JavaScript": "Promesas, async/await, y manejo de APIs (como fetch).",
+            "Optimización y rendimiento": "Técnicas para mejorar la velocidad de carga y la eficiencia de tus aplicaciones.",
+            "Desarrollo de aplicaciones web interactivas": "Integración con bases de datos, autenticación de usuarios y consumo de APIs."
+          },
+          "disponible": true
+        },
+        "C#": {
+          "detalles": "C# es un lenguaje de programación orientado a objetos utilizado en el desarrollo de aplicaciones para la plataforma .NET. Aprende a crear aplicaciones de escritorio, videojuegos con Unity, y aplicaciones web.",
+          "fondo": "https://media.licdn.com/dms/image/v2/C4E12AQEOW8HLRbGzeg/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1520636373448?e=2147483647&v=beta&t=cTpgSevOQAnMgmYjtuZkPIkYLwYXVu2Fwtye6pePv_I",
+          "prof": "Pedro Castillo",
+          "cupos": 24,
+          "masDetalles": {
+            "Desarrollo de aplicaciones de escritorio": "Creación de aplicaciones de escritorio con Windows Forms y WPF.",
+            "Fundamentos de C#": "Sintaxis, tipos de datos, estructuras de control, clases, objetos y excepciones.",
+            "Desarrollo de videojuegos": "Uso de Unity y C# para crear videojuegos interactivos y multiplataforma."
+          },
+          "id": 6,
+          "duracion": "12 semanas",
+          "disponible": true
+        },
+        "Python": {
+          "masDetalles": {
+            "Introducción a la Ciencia de Datos": "Uso de bibliotecas como Pandas, Numpy y Matplotlib para analizar y visualizar datos.",
+            "Desarrollo de aplicaciones web": "Uso de frameworks como Flask y Django para crear aplicaciones web dinámicas y escalables.",
+            "Fundamentos de Python": "Sintaxis, estructuras de control, funciones y manejo de archivos.",
+            "Automatización y scripting": "Crear scripts para tareas repetitivas, procesamiento de archivos y automatización de tareas.",
+            "Trabajo con APIs y bases de datos": "Integración con servicios externos y uso de bases de datos como SQLite y PostgreSQL."
+          },
+          "id": 3,
+          "detalles": "Python es un lenguaje versátil y fácil de aprender, utilizado en una amplia variedad de aplicaciones, desde desarrollo web hasta inteligencia artificial. Aprende a crear desde scripts simples hasta aplicaciones complejas con Python, explorando su uso en desarrollo web, ciencia de datos, automatización y más.",
+          "cupos": 28,
+          "fondo": "https://i.ytimg.com/vi/ZFPqYyd0Hh8/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDvmKL_Z-HqvdBkSJ9AGDP_IWWdAg",
+          "disponible": true,
+          "duracion": "15 semanas",
+          "prof": "Álvaro Gutiérrez "
+        },
+        "PHP": {
+          "disponible": true,
+          "id": 2,
+          "detalles": "PHP es un lenguaje de programación del lado del servidor muy popular para crear aplicaciones web dinámicas. Aprende a desarrollar sitios web interactivos, gestionar bases de datos y crear aplicaciones completas con PHP y MySQL.",
+          "duracion": "15 semanas",
+          "cupos": 23,
+          "masDetalles": {
+            "Interacción con Bases de Datos": "Conexión a bases de datos MySQL, consultas y manejo de datos.",
+            "Fundamentos de PHP": "Sintaxis básica, variables, estructuras de control, funciones y manejo de errores.",
+            "Desarrollo de sitios dinámicos": "Creación de formularios, procesamiento de datos de usuario y validación de entradas.",
+            "Uso de Frameworks en PHP": "Introducción a Laravel, uno de los frameworks PHP más populares, para agilizar el desarrollo de aplicaciones web.",
+            "Manejo de sesiones y cookies": "Autenticación de usuarios y manejo de datos temporales.",
+            "Seguridad en PHP": "Buenas prácticas para prevenir vulnerabilidades como inyección de SQL, XSS y CSRF."
+          },
+          "prof": "Marcos Montes",
+          "fondo": "https://blog.facialix.com/wp-content/uploads/2024/03/curso-gratis-php-y-mysql.jpg"
+        }
+      }
+    }
+  }
+]

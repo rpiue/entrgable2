@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Descarga el APK desarrollado por Jairo Huaripata y revisa el código en GitHub.">
+    <meta name="keywords" content="descargar APK, Jairo Huaripata, ver código, GitHub">
+    <meta name="author" content="Jairo Huaripata">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <title>Descarga el APK</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            /* Asegura que el contenido se centre vertical y horizontalmente */
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            /* Soporta contenido adicional mejor que 'height: 100vh' */
+            margin: 0;
+            /* Elimina márgenes por defecto */
+            background: linear-gradient(62deg, #191a1d, #473d97, #292929, #0f0f2e);
+            background-size: 200% 200%;
+            animation: gradientShift 10s ease-in-out infinite;
+            color: #fff;
+            /* Asegura que el texto contraste bien con el fondo */
+        }
+
+        /* Animación del cambio de fondo */
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+
+        header {
+            text-align: center;
+            padding: 20px 10px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            color: #fff;
+        }
+
+        .containerUI {
+            max-width: 700px;
+            margin: 40px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            color: #333;
+            text-align: center;
+            justify-content: center;
+        }
+
+        .containerUI img {
+            max-width: 100%;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .containerUI h2 {
+            font-size: 1.8rem;
+            margin: 20px 0 10px;
+        }
+
+        .containerUI p {
+            font-size: 1rem;
+            line-height: 1.5;
+            margin: 10px 0 20px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .buttons a {
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .buttons a.download {
+            background-color: #4CAF50;
+            color: #fff;
+        }
+
+        .buttons a.github {
+            background-color: #24292e;
+            color: #fff;
+        }
+
+        .buttons a:hover {
+            transform: scale(1.05);
+        }
+
+        .buttons a.download:hover {
+            background-color: #45a049;
+        }
+
+        .buttons a.github:hover {
+            background-color: #444;
+        }
+
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            color: #fff;
+            font-size: 0.9rem;
+            padding: 20px;
+        }
+
+        footer a {
+            color: #ffeb3b;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Estilo para la terminal */
+        .terminal-containerUI {
+            margin-top: 40px;
+            background-color: #1e1e1e;
+            padding: 40px;
+            border-radius: 8px;
+            color: #d4d4d4;
+            font-family: "Courier New", Courier, monospace;
+            width: 90%;
+            max-width: 800px;
+            height: 400px;
+            overflow-y: auto;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Estilo para los elementos JSON */
+        .json-key {
+            color: #99d1ea;
+            /* Naranja */
+        }
+
+        .json-value {
+            color: #ce9178;
+            /* Amarillo */
+        }
+
+        .json-string {
+            color: #dfab9c;
+            /* Rosa claro */
+        }
+
+        .json-number {
+            color: #b5cea8;
+            /* Verde claro */
+        }
+
+        .json-boolean {
+            color: #569cd6;
+            /* Azul */
+        }
+
+        .json-null {
+            color: #000000;
+            /* Negro */
+        }
+
+        .terminal {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+
+        .terminal-containerUI-wrapper {
+            display: flex;
+            justify-content: space-between;
+            /* Espaciado entre los dos terminales */
+            gap: 20px;
+            /* Separación entre las columnas */
+            flex-wrap: wrap;
+            /* Permite que los contenedores se ajusten cuando no haya suficiente espacio */
+        }
+
+        @media (max-width: 768px) {
+            .terminal-containerUI {
+                width: 100%;
+                /* En pantallas pequeñas, ocupa el 100% del ancho */
+                margin-bottom: 20px;
+                /* Espaciado entre las columnas cuando estén en fila */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Descarga el APK</h1>
+        <p>Desarrollado por Jairo Huaripata</p>
+    </header>
+    <center>
+
+
+        <div class="containerUI">
+            <img src="logo.png" alt="Vista previa del APK" width="100">
+            <h2>Aplicación Android</h2>
+            <p>Descarga la última versión del APK y explora el código fuente en GitHub para saber más sobre este
+                proyecto.
+            </p>
+            <div class="buttons">
+                <a href="" class="download" id="download">Descargar APK</a>
+                <a href="https://github.com/rpiue/entrgable2.git" target="_blank" class="github">Ver Código</a>
+            </div>
+        </div>
+    </center>
+
+    <!-- Terminal para mostrar el contenido de los archivos JSON -->
+    <p class="center-text">Aquí están las copias de seguridad disponibles para descargar:</p>
+
+    <style>
+        .center-text {
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+    </style>
+
+    <div class="terminal-containerUI-wrapper">
+        <div class="terminal-containerUI">
+            <h3>Backup de la Colección App</h3>
+            <button id="downloadAppBackup" class="download-button">Descargar Backup de App</button>
+
+            <div id="terminal" class="terminal">Cargando archivo JSON de App...</div>
+        </div>
+
+        <div class="terminal-containerUI">
+            <h3>Backup de la Colección Usuarios</h3>
+            <button id="downloadUserBackup" class="download-button">Descargar Backup de Usuarios</button>
+
+            <div id="terminal2" class="terminal">Cargando archivo JSON de Usuarios...</div>
+        </div>
+    </div>
+
+
+    <footer>
+        &copy; 2025 Jairo Huaripata. Todos los derechos reservados. Visita mi <a
+            href="https://github.com/rpiue/entrgable2.git" target="_blank">GitHub</a>.
+    </footer>
+
+    <script>
+
+
+        async function getJsonData() {
+            try {
+                // Función para obtener y mostrar el contenido JSON desde el servidor
+                const response = await fetch('/get-json/app');  // Obtén el backup de la app
+                const dataApp = await response.json();
+
+                const response2 = await fetch('/get-json/usuarios');  // Obtén el backup de usuarios
+                const dataUser = await response2.json();
+
+
+
+                function highlightJson(json) {
+                    function processValue(value, indent = '') {
+                        if (typeof value === 'string') {
+                            return `<span class="json-string">"${value}"</span>`;
+                        }
+                        if (typeof value === 'number') {
+                            return `<span class="json-number">${value}</span>`;
+                        }
+                        if (typeof value === 'boolean') {
+                            return `<span class="json-boolean">${value}</span>`;
+                        }
+                        if (value === null) {
+                            return `<span class="json-null">${value}</span>`;
+                        }
+                        if (Array.isArray(value)) {
+                            const arrayItems = value.map(item => `${indent}  ${processValue(item, indent + '  ')}`).join(',\n');
+                            return `<span class="json-array">[\n${arrayItems}\n${indent}]</span>`;
+                        }
+                        if (typeof value === 'object') {
+                            const objectEntries = Object.entries(value).map(([key, val]) =>
+                                `${indent}  <span class="json-key">"${key}"</span>: ${processValue(val, indent + '  ')}`).join(',\n');
+                            return `<span class="json-object">{\n${objectEntries}\n${indent}}</span>`;
+                        }
+                        return value;
+                    }
+                    return `<span class="json-object">${processValue(json, '')}</span>`;
+                }
+
+                const terminalApp = document.getElementById('terminal');
+                terminalApp.innerHTML = highlightJson(dataApp);
+                terminalApp.scrollTop = terminalApp.scrollHeight;
+
+                const terminalUser = document.getElementById('terminal2');
+                terminalUser.innerHTML = highlightJson(dataUser);
+                terminalUser.scrollTop = terminalUser.scrollHeight;
+
+                // Función para descargar los archivos
+                document.getElementById('downloadAppBackup').addEventListener('click', () => {
+                    const link = document.createElement('a');
+                    link.href = '/get-json/app/download';
+                    link.download = 'app-backup.json';
+                    link.click();
+                });
+
+                document.getElementById('downloadUserBackup').addEventListener('click', () => {
+                    const link = document.createElement('a');
+                    link.href = '/get-json/usuarios/download';
+                    link.download = 'usuarios-backup.json';
+                    link.click();
+                });
+            } catch (error) {
+                console.error("Error al cargar el archivo JSON", error);
+            }
+        }
+
+        // Llamar a la función al cargar la página
+        window.onload = getJsonData;
+    </script>
+</body>
+
+</html>
