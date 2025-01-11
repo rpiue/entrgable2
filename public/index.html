@@ -8,12 +8,11 @@
     <meta name="keywords" content="descargar APK, Jairo Huaripata, ver código, GitHub">
     <meta name="author" content="Jairo Huaripata">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-        <script type="text/javascript">
+    <script type="text/javascript">
         document.addEventListener('contextmenu', function (e) {
             e.preventDefault();
         });
     </script>
-
     <title>Descarga el APK</title>
     <style>
         body {
@@ -276,77 +275,6 @@
             href="https://github.com/JairoHuaripata/Entregable-2" target="_blank">GitHub</a>.
     </footer>
 
-    <script>
-        async function getJsonData() {
-            try {
-                // Función para obtener y mostrar el contenido JSON desde el servidor
-                const response = await fetch('/get-json/app');  // Obtén el backup de la app
-                const dataApp = await response.json();
-
-                const response2 = await fetch('/get-json/usuarios');  // Obtén el backup de usuarios
-                const dataUser = await response2.json();
-
-
-
-                function highlightJson(json) {
-                    function processValue(value, indent = '') {
-                        if (typeof value === 'string') {
-                            return `<span class="json-string">"${value}"</span>`;
-                        }
-                        if (typeof value === 'number') {
-                            return `<span class="json-number">${value}</span>`;
-                        }
-                        if (typeof value === 'boolean') {
-                            return `<span class="json-boolean">${value}</span>`;
-                        }
-                        if (value === null) {
-                            return `<span class="json-null">${value}</span>`;
-                        }
-                        if (Array.isArray(value)) {
-                            const arrayItems = value.map(item => `${indent}  ${processValue(item, indent + '  ')}`).join(',\n');
-                            return `<span class="json-array">[\n${arrayItems}\n${indent}]</span>`;
-                        }
-                        if (typeof value === 'object') {
-                            const objectEntries = Object.entries(value).map(([key, val]) =>
-                                `${indent}  <span class="json-key">"${key}"</span>: ${processValue(val, indent + '  ')}`).join(',\n');
-                            return `<span class="json-object">{\n${objectEntries}\n${indent}}</span>`;
-                        }
-                        return value;
-                    }
-                    return `<span class="json-object">${processValue(json, '')}</span>`;
-                }
-
-                const terminalApp = document.getElementById('terminal');
-                terminalApp.innerHTML = highlightJson(dataApp);
-                terminalApp.scrollTop = terminalApp.scrollHeight;
-
-                const terminalUser = document.getElementById('terminal2');
-                terminalUser.innerHTML = highlightJson(dataUser);
-                terminalUser.scrollTop = terminalUser.scrollHeight;
-
-                // Función para descargar los archivos
-                document.getElementById('downloadAppBackup').addEventListener('click', () => {
-                    const link = document.createElement('a');
-                    link.href = '/get-json/app/download';
-                    link.download = 'app-backup.json';
-                    link.click();
-                });
-
-                document.getElementById('downloadUserBackup').addEventListener('click', () => {
-                    const link = document.createElement('a');
-                    link.href = '/get-json/usuarios/download';
-                    link.download = 'usuarios-backup.json';
-                    link.click();
-                });
-            } catch (error) {
-                console.error("Error al cargar el archivo JSON", error);
-            }
-        }
-
-        // Llamar a la función al cargar la página
-        window.onload = getJsonData;
-    </script>
-
 
     <script>
         class APKDownloader {
@@ -359,57 +287,108 @@
                     'default': 'https://www.mediafire.com/folder/9an0aq81iiiwq/Entregable+2'
                 };
             }
-
+    
             // Detecta la arquitectura del dispositivo
             getArchitecture() {
-                const platform = navigator.platform.toLowerCase();
-                const userAgent = navigator.userAgent.toLowerCase();
-
-                if (platform.includes('arm64') || userAgent.includes('aarch64') || userAgent.includes('armv8')) {
+                const { platform, userAgent } = navigator;
+                const lowerPlatform = platform.toLowerCase();
+                const lowerUserAgent = userAgent.toLowerCase();
+    
+                if (lowerPlatform.includes('arm64') || lowerUserAgent.includes('aarch64') || lowerUserAgent.includes('armv8')) {
                     return 'arm64-v8a';
-                } else if (platform.includes('arm') || userAgent.includes('armeabi') || userAgent.includes('armv7')) {
+                } else if (lowerPlatform.includes('arm') || lowerUserAgent.includes('armeabi') || lowerUserAgent.includes('armv7')) {
                     return 'armeabi-v7a';
-                } else if (platform.includes('x86_64') || userAgent.includes('x86_64') || userAgent.includes('amd64')) {
+                } else if (lowerPlatform.includes('x86_64') || lowerUserAgent.includes('x86_64') || lowerUserAgent.includes('amd64')) {
                     return 'x86_64';
                 }
                 return 'default';
             }
-
-            // Muestra el mensaje y genera el enlace de descarga para todos los elementos con id="downloadLink"
+    
+            // Genera los enlaces de descarga
             generateDownloadLinks() {
-                const downloadLinks = document.querySelectorAll('#downloadLink'); // Selecciona todos los elementos con id="downloadLink"
-                const apkLink = this.downloadLinks[this.architecture] || this.downloadLinks['default'];
-
-                // Mensaje de detección de arquitectura
-                if (this.architecture === 'default') {
-                    downloadLinks.forEach((link) => {
-                        link.href = apkLink;
-                        //  link.style.display = 'none';
-                    });
-                } else {
-                    downloadLinks.forEach((link) => {
-                        link.href = apkLink;
-                        link.style.display = 'inline-block';
-                    });
-                }
-
-                // Actualiza el href de todos los enlaces con id="downloadLink"
-                //  downloadLinks.forEach((link) => {
-                //      link.href = apkLink;
-                //      link.style.display = 'inline-block';
-                //  });
+                const downloadLinks = document.querySelectorAll('#downloadLink');
+                const apkLink = this.downloadLinks[this.architecture];
+    
+                downloadLinks.forEach(link => {
+                    link.href = apkLink;
+                  //  link.style.display = this.architecture === 'default' ? 'none' : 'inline-block';
+                });
             }
         }
-
-        // Inicializa el descargador al cargar la página
+    
+        async function getJsonData() {
+            try {
+                // Obtiene datos del servidor
+                const [appResponse, userResponse] = await Promise.all([
+                    fetch('/get-json/app'),
+                    fetch('/get-json/usuarios')
+                ]);
+    
+                const [dataApp, dataUser] = await Promise.all([
+                    appResponse.json(),
+                    userResponse.json()
+                ]);
+    
+                // Muestra datos en el terminal
+                displayJsonData('terminal', dataApp);
+                displayJsonData('terminal2', dataUser);
+    
+                // Configura botones de descarga
+                setupDownloadButton('downloadAppBackup', '/get-json/app/download', 'app-backup.json');
+                setupDownloadButton('downloadUserBackup', '/get-json/usuarios/download', 'usuarios-backup.json');
+            } catch (error) {
+                console.error('Error al cargar los datos JSON:', error);
+            }
+        }
+    
+        // Resalta y muestra JSON en un contenedor
+        function displayJsonData(containerId, jsonData) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = highlightJson(jsonData);
+            container.scrollTop = container.scrollHeight;
+        }
+    
+        // Configura un botón para descargar un archivo
+        function setupDownloadButton(buttonId, url, fileName) {
+            const button = document.getElementById(buttonId);
+            button.addEventListener('click', () => {
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = fileName;
+                link.click();
+            });
+        }
+    
+        // Resalta el formato JSON
+        function highlightJson(json) {
+            const processValue = (value, indent = '') => {
+                if (typeof value === 'string') return `<span class="json-string">"${value}"</span>`;
+                if (typeof value === 'number') return `<span class="json-number">${value}</span>`;
+                if (typeof value === 'boolean') return `<span class="json-boolean">${value}</span>`;
+                if (value === null) return `<span class="json-null">null</span>`;
+                if (Array.isArray(value)) {
+                    const items = value.map(item => `${indent}  ${processValue(item, indent + '  ')}`).join(',\n');
+                    return `<span class="json-array">[\n${items}\n${indent}]</span>`;
+                }
+                if (typeof value === 'object') {
+                    const entries = Object.entries(value).map(
+                        ([key, val]) => `${indent}  <span class="json-key">"${key}"</span>: ${processValue(val, indent + '  ')}`
+                    ).join(',\n');
+                    return `<span class="json-object">{\n${entries}\n${indent}}</span>`;
+                }
+                return value;
+            };
+            return `<span class="json-object">${processValue(json)}</span>`;
+        }
+    
+        // Ejecuta al cargar la página
         window.onload = () => {
             const downloader = new APKDownloader();
             downloader.generateDownloadLinks();
+            getJsonData();
         };
-
-
     </script>
-
+    
 
 </body>
 
