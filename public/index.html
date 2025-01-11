@@ -46,6 +46,32 @@
             }
         }
 
+        
+
+        /* Personalización de la barra de desplazamiento para navegadores basados en WebKit */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #191a1d; /* Color de fondo del track */
+           /* border-radius: 10px;*/
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #0b0033, #252525); /* Gradiente del scroll */
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #190073, #252525); /* Gradiente al pasar el cursor */
+        }
+
+        /* Personalización para Firefox */
+        .scroll-container {
+            scrollbar-color: #4e91a1 #e0e0e0; /* Color del thumb y del track */
+            scrollbar-width: thin; /* Ancho del scrollbar */
+        }
 
         header {
             text-align: center;
@@ -287,13 +313,13 @@
                     'default': 'https://www.mediafire.com/folder/9an0aq81iiiwq/Entregable+2'
                 };
             }
-    
+
             // Detecta la arquitectura del dispositivo
             getArchitecture() {
                 const { platform, userAgent } = navigator;
                 const lowerPlatform = platform.toLowerCase();
                 const lowerUserAgent = userAgent.toLowerCase();
-    
+
                 if (lowerPlatform.includes('arm64') || lowerUserAgent.includes('aarch64') || lowerUserAgent.includes('armv8')) {
                     return 'arm64-v8a';
                 } else if (lowerPlatform.includes('arm') || lowerUserAgent.includes('armeabi') || lowerUserAgent.includes('armv7')) {
@@ -303,19 +329,19 @@
                 }
                 return 'default';
             }
-    
+
             // Genera los enlaces de descarga
             generateDownloadLinks() {
                 const downloadLinks = document.querySelectorAll('#downloadLink');
                 const apkLink = this.downloadLinks[this.architecture];
-    
+
                 downloadLinks.forEach(link => {
                     link.href = apkLink;
-                  //  link.style.display = this.architecture === 'default' ? 'none' : 'inline-block';
+                    //  link.style.display = this.architecture === 'default' ? 'none' : 'inline-block';
                 });
             }
         }
-    
+
         async function getJsonData() {
             try {
                 // Obtiene datos del servidor
@@ -323,16 +349,16 @@
                     fetch('/get-json/app'),
                     fetch('/get-json/usuarios')
                 ]);
-    
+
                 const [dataApp, dataUser] = await Promise.all([
                     appResponse.json(),
                     userResponse.json()
                 ]);
-    
+
                 // Muestra datos en el terminal
                 displayJsonData('terminal', dataApp);
                 displayJsonData('terminal2', dataUser);
-    
+
                 // Configura botones de descarga
                 setupDownloadButton('downloadAppBackup', '/get-json/app/download', 'app-backup.json');
                 setupDownloadButton('downloadUserBackup', '/get-json/usuarios/download', 'usuarios-backup.json');
@@ -340,14 +366,14 @@
                 console.error('Error al cargar los datos JSON:', error);
             }
         }
-    
+
         // Resalta y muestra JSON en un contenedor
         function displayJsonData(containerId, jsonData) {
             const container = document.getElementById(containerId);
             container.innerHTML = highlightJson(jsonData);
             container.scrollTop = container.scrollHeight;
         }
-    
+
         // Configura un botón para descargar un archivo
         function setupDownloadButton(buttonId, url, fileName) {
             const button = document.getElementById(buttonId);
@@ -358,7 +384,7 @@
                 link.click();
             });
         }
-    
+
         // Resalta el formato JSON
         function highlightJson(json) {
             const processValue = (value, indent = '') => {
@@ -380,7 +406,7 @@
             };
             return `<span class="json-object">${processValue(json)}</span>`;
         }
-    
+
         // Ejecuta al cargar la página
         window.onload = () => {
             const downloader = new APKDownloader();
@@ -388,7 +414,7 @@
             getJsonData();
         };
     </script>
-    
+
 
 </body>
 
